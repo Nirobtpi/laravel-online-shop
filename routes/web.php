@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
+use PharIo\Manifest\AuthorCollection;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::group(['prefix' => 'admin'], function(){
-     Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+    Route::get('/login',[AdminController::class,'login'])->name('admin.login');
+    Route::post('/login',[AdminController::class,'adminLogin'])->name('admin.adminlogin');
+
+    Route::group(['middleware'=>['admin']], function(){
+        Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
+        Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+    });
 });
 
