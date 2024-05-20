@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::group(['middleware'=>['admin']], function(){
         Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
         Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+        Route::get('/update-password',[AdminController::class,'update'])->name('admin.update_password');
     });
 });
 

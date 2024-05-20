@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function dashboard(){
+        
         return view('admin.dashboard');
     }
     public function login(){
@@ -31,5 +32,8 @@ class AdminController extends Controller
     public function logout(){
         Auth::guard('admin')->logout();
         return redirect('admin/login');
+    }
+    public function update(){
+        return view('admin.update_password');
     }
 }
