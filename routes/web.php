@@ -26,6 +26,11 @@ Route::group(['prefix' => 'admin'], function(){
         Route::get('/dashboard',[AdminController::class,'dashboard'])->name('admin.dashboard');
         Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
         Route::get('/update-password',[AdminController::class,'update'])->name('admin.update_password');
+        Route::post('/update-admin-password/{id}',[AdminController::class,'updatePassword'])->name('admin.updatePassword');
+        Route::get('update-admin-details',[AdminController::class,'updateAdminDetails'])->name('admin.update_admin_details');
+        Route::post('update-admin-details/{id}',[AdminController::class,'updateAdminData'])->name('admin.update_admin_data');
     });
 });
+Route::get('file',[AdminController::class,'filelink']);
+Route::post('file',[AdminController::class,'file']);
 

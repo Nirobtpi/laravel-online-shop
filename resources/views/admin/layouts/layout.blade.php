@@ -35,10 +35,10 @@
                             class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="javascript:void(0)" class="nav-link">Wealcome <strong>{{ Auth::guard('admin')->user()->name }}</strong></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="{{ route('admin.dashboard') }}" class="nav-link">Dashboard</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="{{ route('admin.logout') }}" class="nav-link">Logout</a>
@@ -188,10 +188,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('storage/') }}/{{ Auth::guard('admin')->user()->image }}" class="img-circle elevation-2" alt="User Image" style="width: 50px; height:50px;object-fit:cover; border-radius:50%">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">{{ Auth::guard('admin')->user()->name }}</a>
                     </div>
                 </div>
 
@@ -230,7 +230,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a href="{{ url('admin/update-admin-details') }}" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Update Admin Details</p>
                                     </a>
